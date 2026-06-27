@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logs</title>
+    <script src="/static/local/shortcuts.js"></script>
+    <link rel="stylesheet" href="/static/css/notifications.css">
+</head>
+<body>
+    <div class="display-container" id="main-container" tabindex="-1" style="outline: none;">
+        <header>
+            <div>
+                <label style="color: #186907; text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.2);">Watchlist</label>
+                <div>
+                    <a class='green_button add-record' href="/add_to_watchlist">Add Record</a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="log-table">
+                <table>
+                    <colgroup>
+                        <col width="8%">
+                        <col width="24%">
+                        <col width="48%">
+                        <col width="10%">
+                    </colgroup>
+                    <thead>
+                        <tr style="position: sticky; z-index: 1;">
+                            <th>Image</th>
+                            <th>Target Information</th>
+                            <th colspan="2">Details</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_content">
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+<script src="/static/local/notifications.js"></script>

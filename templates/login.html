@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <script src="/static/local/shortcuts.js"></script>
+    <script src="/static/local/global_utils.js"></script>
+    <script src="/static/local/login.js" defer></script>
+    <script src="/static/local/customAlert.js" defer></script>
+    <script src="/static/local/send-data-to-python.js"></script>
+    <link rel="icon" href="static/images/icon.ico">
+    <link rel="stylesheet" href="/static/css/login.css">
+</head>
+<body onload="localStorage.clear();$('login_employee_id').focus();">
+    <container id="main-container" tabindex="-1" style="outline: none;">
+        <preload style="display: none;">
+            <img src="/static/images/eye.png" class="showhide">
+            <img src="/static/images/hidden.png" class="showhide">
+        </preload>
+        <main>
+            <header>
+                <div>
+                    <label>Welcome</label>
+                </div>
+            </header>
+            <subheader>
+                <div>
+                    <label>Log in to your account to continue</label>
+                </div>
+            </subheader>
+            <content>
+                <div class="input-field" style="border-radius: 5px; overflow: hidden;">
+                    <div style="width: 50px;height: 50px; background-color: #D7D8D8; display: flex; align-items: center; justify-content: center;"><img src="static/images/id.png" style="height: 35px; filter: invert();"></div>
+                    <label class="no-select input" onclick="$('login_employee_id').focus()">Employee ID</label>
+                    <input type="text" onfocus="lastfocused(this)" id="login_employee_id" required oninput="input_to_upper(this)">
+                </div>
+                <div class="input-field" style="border-radius: 5px; overflow: hidden;">
+                    <div style="width: 50px;height: 50px; background-color: #D7D8D8; display: flex; align-items: center; justify-content: center;"><img src="static/images/lock_icon.png" style="height: 35px;"></div>
+                    <label class="no-select input" onclick="$('login_password').focus()">Password</label>
+                    <input type="password" onfocus="lastfocused(this)" id="login_password" required oninput="this.value = this.value.replace(/\s/g, '');">
+                    <div id="showwrap"><a id="togglePassword" onclick="toggleBtn(this,$('login_password'))"><img src="/static/images/hidden.png" class="showhide"></a></div>
+                </div>
+            </content>
+            <actions>
+                <a class="no-select no-underline" onclick="handleLogin()">LOGIN</a>
+            </actions>
+            <footer style="width: 100%;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+                <div>
+                    <label>Don't have an account? <a href="/register" class="no-select no-underline" style="color: #0cc0df">Register</a></label>
+                </div>
+                <br>
+                <div>
+                    <a class="nav-button-red" onclick="handle_shutdown()" style="color: #0cc0df; cursor: pointer;">Shutdown System</a>
+                </div>
+            </footer>
+        </main>
+    </container>
+</body>
+</html>

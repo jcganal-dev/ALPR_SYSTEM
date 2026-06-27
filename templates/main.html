@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>License Plate Recognition System</title>
+    <script src="/static/local/shortcuts.js"></script>
+    <script src="/static/local/global_utils.js"></script>
+    <script src="/static/local/send-data-to-python.js"></script>
+    <script src="/static/local/customAlert.js"></script>
+    <link rel="icon" href="static/images/icon.ico">
+    <link rel="stylesheet" href="/static/css/global.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body onload="localStorage.setItem('current_live_video_page_index',0)">
+    <div class="main-container" style="background-image: url('/static/images/mmsu_bg.jpg');background-size: cover;">
+        <div class="side-bar-parent">
+            <div class="side-bar" id="side-bar">
+                <div class="profile-button">
+                    <div class="user-container">
+                        <img src="/static/images/user.png" alt="user" class="user-icon" id="user_icon" onerror="this.src='/static/images/user.png'">
+                    </div>
+                </div>
+                <div class="user-name" id="user-name">User</div>
+                <div style="display: flex;flex-direction: column; justify-content: space-between;height: 100%;width: 100%;">
+                    <div class="nav-panel">
+                        <a class="nav-button" onclick="navigate_to(this.id)" id="dashboard"><img src="/static/images/dashboard_icon.png" class="button-icon" alt="icon"><label>Dashboard</label></a>
+                        <a class="nav-button" onclick="navigate_to(this.id)" id="live_video"><img src="/static/images/liveview_icon.png" class="button-icon" alt="icon"><label>Live Video</label></a>
+                        <a class="nav-button" onclick="navigate_to(this.id);localStorage.setItem('currentVehicleLogsPage', 1);" id="logs"><img src="/static/images/logs_icon.png" class="button-icon" alt="icon"><label>Vehicle Logs</label></a>
+                        <a class="nav-button" onclick="navigate_to(this.id);clear_notifications()" id="notifications"><img src="/static/images/notifications.png" class="button-icon" alt="icon"><label>Watchlist</label></a>
+                        <a class="nav-button" onclick="navigate_to(this.id)" id="users"><img src="/static/images/users_icon.png" class="button-icon" alt="icon"><label>Users</label></a>
+                    </div>
+                    <div style="display: flex;flex-direction: column; width: 100%;">
+                        <a class="nav-button" onclick="handle_logout()"><img src="/static/images/logout.png" class="button-icon" alt="icon"><label>Log-out</label></a>
+                        <a class="nav-button-red" onclick="
+                        handle_logout_and_shutdown()
+                        "><img src="/static/images/shutdown.png" class="button-icon" alt="icon"><label style="margin-bottom:-4px;">Shutdown</label></a>
+                    </div>
+                </div>
+            </div>
+            <div class="minimize-container">
+                <a class="minimize-button" onclick="handle_sidebar(this.firstElementChild)">
+                    <img src="/static/images/left.png" class="minimize-icon" alt="icon">
+                </a>
+            </div>
+        </div>
+        <iframe frameBorder="0" id="iframe" src="/dashboard" style="width: 100%;"></iframe>
+    </div>
+</body>
+</html>
+<script src="/static/local/main.js"></script>
+
+

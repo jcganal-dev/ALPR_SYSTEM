@@ -1,0 +1,82 @@
+/* =========================================
+   Typography & Fonts
+   ========================================= */
+@font-face {
+    font-family: 'LicensePlate';
+    src: url('/static/fonts/LicensePlate.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* =========================================
+   Global Styles & Base Elements
+   ========================================= */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #D7D8D8;
+    color: black;
+    font-family: ui-sans-serif, sans-serif, "Apple Color Emoji", "Sogo UI Emoji", "Sogoe UI Symbol", "Noto Color Emoji";
+}
+
+th {
+    white-space: nowrap;
+    overflow: hidden; /* Hides the overflowing text */
+    text-overflow: ellipsis; /* Displays an ellipsis (...) for clipped text */
+}
+
+/* =========================================
+   Layout & Structure
+   ========================================= */
+.main-container {
+    display: flex;
+    height: 100%;
+}
+
+header {
+    border-bottom: solid 2px #0c4b05;
+}
+
+.header {
+    margin-left: 17px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.title {
+    font-size: 39px;
+}
+
+/* =========================================
+   Status Indicators
+   ========================================= */
+div[status="initializing"], .dot[status="initializing"],
+div[status="active"], .dot[status="active"],
+div[status="inactive"], .dot[status="inactive"] {
+    border-radius: 100%;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}
+
+div[status="initializing"], .dot[status="initializing"] {
+    background-color: yellow;
+}
+
+div[status="active"], .dot[status="active"] {
+    background-color: green;
+}
+
+div[status="inactive"], .dot[status="inactive"] {
+    background-color: red;
+}
+
+/* =========================================
+   Utility Classes
+   ========================================= */
+.no-select {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

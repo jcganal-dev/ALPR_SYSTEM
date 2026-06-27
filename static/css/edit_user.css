@@ -1,0 +1,233 @@
+/* =========================================
+   Typography & Base Elements
+   ========================================= */
+body {
+    background-color: rgb(215 216 216 / 30%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: ui-sans-serif, sans-serif, "Apple Color Emoji", "Sogo UI Emoji", "Sogoe UI Symbol", "Noto Color Emoji";
+    font-weight: 500;
+}
+
+/* =========================================
+   Main Layout & Containers
+   ========================================= */
+.main_container {
+    width: 700px;
+    height: 510px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.side_panel {
+    width: 40px;
+    height: 100%;
+    background-color: #0C4B05;
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+}
+
+content {
+    width: 100%;
+}
+
+.main_content {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0px 15px 20px;
+    gap: 10px;
+    border-bottom: solid 2px #E7EBEB;
+}
+
+/* =========================================
+   Header
+   ========================================= */
+content header {
+    border-bottom: solid 2px #E7EBEB;
+    width: 100%;
+    padding: 5px 0px 10px 0px;
+}
+
+content header label {
+    font-size: 36px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+/* =========================================
+   User Profile & Information
+   ========================================= */
+.user_information {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.user_icon_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15%;
+    gap: 10px;
+}
+
+.user_icon_div a {
+    width: 90%;
+    text-align: center;
+}
+
+.user_icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.user_desc_div {
+    padding: 20px 0px 0px 0px;
+}
+
+.username {
+    font-size: 24px;
+    font-weight: bold;
+    padding-right: 10px;
+    border-right: solid 4px #646464;
+}
+
+.user_role {
+    font-size: 24px;
+    padding-left: 10px;
+}
+
+.user_id {
+    font-size: 18px;
+}
+
+.user_email {
+    font-size: 14px;
+}
+
+/* =========================================
+   Forms & Inputs
+   ========================================= */
+.input_group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.input_group div {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.input_group div label {
+    font-size: 12px;
+}
+
+.input {
+    font-family: ui-sans-serif, sans-serif, "Apple Color Emoji", "Sogo UI Emoji", "Sogoe UI Symbol", "Noto Color Emoji";
+    font-size: 14px;
+    border: 2px solid #0C4B05;
+    border-radius: 5px;
+    padding: 6px;
+}
+
+select.input {
+    padding: 5.37px;
+}
+
+/* =========================================
+   Password Fields & Interactions
+   ========================================= */
+#password {
+    padding-right: 40px; /* Space for the button */
+}
+
+#showwrap, 
+#showconfirmwrap {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#togglePassword, 
+#toggleConfirmPassword {
+    position: absolute;
+    transform: translateX(-135%) translateY(43%);
+    color: black;
+    user-select: none;
+}
+
+.showhide {
+    height: 26px;
+}
+
+/* Hide the 'X' clear and reveal buttons in IE/Edge */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+
+/* =========================================
+   Buttons & Actions
+   ========================================= */
+.button {
+    text-decoration: none;
+    color: white;
+    background-color: #186907;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.red_button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: red;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.gray_button {
+    text-decoration: none;
+    background-color: #E7EBEB;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+}
+
+.trash_icon {
+    height: 20px;
+}
+
+.confirm_div {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 35px 0px 0px;
+}
+
+.confirm_div a {
+    width: 124px;
+    text-align: center;
+}
+
+/* =========================================
+   Footer Elements
+   ========================================= */
+footer {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px 0px 20px;
+}

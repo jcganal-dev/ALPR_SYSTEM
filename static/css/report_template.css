@@ -1,0 +1,298 @@
+/* =========================================
+   Print & Page Setup
+   ========================================= */
+@page { 
+    size: A4; 
+    margin: 0; 
+}
+
+.page-container {
+    width: 210mm;
+    padding: 20mm;
+    margin: 0 auto;
+    background: white;
+    box-sizing: border-box;
+    page-break-after: always;
+}
+
+.a4-page {
+    width: 210mm;
+    background: white;
+    margin: 10mm auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+/* =========================================
+   Typography & Fonts
+   ========================================= */
+@font-face { 
+    font-family: 'LicensePlate'; 
+    src: url('/static/fonts/LicensePlate.ttf') format('truetype'); 
+    font-weight: normal; 
+    font-style: normal; 
+}
+
+body { 
+    background-color: #D7D8D8; 
+    color: black; 
+    margin: -100px 0px 0px 0px; 
+    padding: 0; 
+    font-family: ui-sans-serif, sans-serif, "Apple Color Emoji", "Sogo UI Emoji", "Sogoe UI Symbol", "Noto Color Emoji";
+}
+
+label.title { 
+    font-size: 39px; 
+}
+
+.header { 
+    margin-left: 17px; 
+    text-align: center; 
+    font-weight: bolder; 
+}
+
+.small { 
+    font-size: 16px; 
+}
+
+#intro { 
+    font-size: 16px; 
+    text-align: justify; 
+}
+
+/* =========================================
+   Main Layout & Structure
+   ========================================= */
+.display-container { 
+    display: flex; 
+    flex-direction: column; 
+    width: 98.5%; 
+    padding: 0px; 
+    font-size: 37px; 
+    gap: 20px; 
+}
+
+.display-container header { 
+    display: flex; 
+    align-items: end; 
+    justify-content: space-between; 
+}
+
+header { 
+    border-bottom: solid 2px #0c4b05; 
+}
+
+.content { 
+    display: flex; 
+    flex-direction: row; 
+    width: 100%; 
+    height: 100%; 
+    justify-content: space-around; 
+}
+
+topcontent, 
+bottomcontent { 
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: inherit; 
+}
+
+topcontent { height: 40%; }
+bottomcontent { height: 60%; max-width: 100%; }
+
+/* =========================================
+   Dashboard Containers
+   ========================================= */
+.traffic-volume-container, 
+.vehicle-classification-container { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 10px; 
+    width: 80%; 
+    height: 250px; 
+    background-color: white;
+}
+
+.system-status-container { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    background-color: white; 
+    width: 100%; 
+    padding-bottom: 10px; 
+    border-radius: 10px; 
+}
+
+.system-status-content { 
+    height: fit-content; 
+    display: flex; 
+    flex-wrap: wrap; 
+    flex-direction: row; 
+    gap: 20px; 
+    justify-content: space-evenly; 
+    padding: 10px; 
+}
+
+.status-box { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    width: 38%; 
+    height: 100px; 
+    background-color: #D7D8D8; 
+    text-align: center; 
+    border-radius: 5px; 
+    padding: 2%; 
+    font-size: 20px; 
+}
+
+.quick-metrics-container { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 10px; 
+    width: 100%; 
+    background-color: white; 
+    gap: 20px; 
+}
+
+.quick_metrics_content { 
+    display: flex; 
+    flex-direction: row; 
+    width: 90%; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.pie-chart { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    width: 100%; 
+    height: 123px; 
+    background-size: cover; 
+}
+
+#traffic-volume-content { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    width: 100%; 
+    background-size: cover; 
+}
+
+/* =========================================
+   Div-Table Structure
+   ========================================= */
+.div-table { 
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    font-size: 14px; 
+}
+
+.div-row { 
+    display: flex; 
+    flex-direction: row; 
+    width: 100%; 
+    align-items: center; 
+    page-break-inside: avoid !important; 
+    break-inside: avoid !important;
+    padding: 8px 0px; 
+    border-bottom: 1px solid #e0e0e0; 
+}
+
+.row-wrapper {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    display: block; 
+    width: 100%;
+}
+
+.header-row { 
+    font-weight: bold; 
+    border-bottom: 2px solid black; 
+    padding-bottom: 10px; 
+}
+
+.div-cell { 
+    padding: 0 5px; 
+    box-sizing: border-box; 
+    word-wrap: break-word; 
+}
+
+/* Strict column widths */
+.col-plate { width: 15%; }
+.col-owner { width: 25%; }
+.col-type  { width: 20%; }
+.col-loc   { width: 18%; }
+.col-time  { width: 22%; }
+
+/* =========================================
+   License Plates & Images
+   ========================================= */
+plate { 
+    font-family: 'LicensePlate', Arial, sans-serif; 
+    letter-spacing: 0.1ch; 
+    cursor: default; 
+    border: solid 1px black; 
+    border-radius: 0.5ch; 
+    padding: 2px 4px 1px 4px; 
+    background-color: white; 
+}
+
+.saved_picture { 
+    height: 100px; 
+    width: 100px; 
+    object-fit: cover;
+}
+
+/* =========================================
+   Footer Elements
+   ========================================= */
+footer { 
+    margin-top: 20px; 
+}
+
+.footer { 
+    margin-top: 15px; 
+    margin-left: 17px; 
+    text-align: center; 
+}
+
+footer div { 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center; 
+    font-size: 14px; 
+    padding: 0% 10%; 
+}
+
+footer div div { 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.line { 
+    background-color: BLACK; 
+    display: inline-block; 
+    height: 2px; 
+    width: 100%; 
+}
+
+#user-sig { 
+    color: transparent; 
+}
+
+/* =========================================
+   Utilities
+   ========================================= */
+.no-select { 
+    user-select: none; 
+}

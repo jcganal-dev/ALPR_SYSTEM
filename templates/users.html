@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Users</title>
+    <script src="/static/local/shortcuts.js"></script>
+    <link rel="stylesheet" href="/static/css/users.css">
+</head>
+<body>
+    <div class="display-container" id="main-container" tabindex="-1" style="outline: none;">
+        <main>
+            <header>
+                <label style="color: #186907; text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.2);">User Management</label>
+                <searchbar>
+                    <div>
+                        <input id="searchInput" type="text" placeholder="Search employee..." oninput="get_users()">
+                        <a class="no-select" onclick="get_users()">🔎︎</a>
+                    </div>
+                </searchbar>
+            </header>
+            <content class="log-table">
+                <table>
+                    <colgroup>
+                        <col width="14%">
+                        <col width="22%">
+                        <col width="14%">
+                        <col width="14%">
+                        <col width="14%">
+                        <col width="22%">
+                    </colgroup>
+                    <thead>
+                        <tr style="position: sticky; z-index: 1;">
+                            <th>Employee ID</th>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Last Login</th>
+                            <th>Last Logout</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_content">
+                    </tbody>
+                </table>
+            </content>
+        </main>
+    </div>
+</body>
+</html>
+<script src="/static/local/users.js"></script>

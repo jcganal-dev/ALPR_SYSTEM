@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <script src="/static/local/shortcuts.js"></script>
+    <script src="/static/chart.min.js"></script>
+    <script src="/static/chartjs-plugin-datalabels.js"></script>
+    <link rel="stylesheet" href="/static/css/global.css">
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body class="no-select">
+        <div class="display-container" id="main-container" tabindex="-1" style="outline: none;">
+            <header>
+                <label>Dashboard</label>
+            </header>
+            <topcontent>
+                <div class="system-status-container">
+                    <div class="header">
+                        <label class="title">
+                            System Status
+                        </label>
+                    </div>
+                    <div class="system-status-content">
+                        <div class="status-box camera1">
+                            <label>Entry Camera</label>
+                            <div>
+                                <div class="dot" id="camera1-status-dot"></div>
+                                <div class="regular-text-div" id="camera1-status-text">Initializing</div>
+                            </div>
+                        </div>
+                        <div class="status-box camera2">
+                            <label>Exit Camera</label>
+                            <div>
+                                <div class="dot" id="camera2-status-dot"></div>
+                                <div class="regular-text-div" id="camera2-status-text">Initializing</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quick-metrics-container">
+                <div class="header" style="margin-left: 0px;">
+                    <label class="title">
+                        Quick Metrics
+                    </label>
+                </div>
+                <div class="quick_metrics_content" style="justify-content: center; align-items: center;">
+                    <div class="status-box" style="width: 30%;">
+                        <div>
+                            <label id="VehiclesToday" style="font-size: 56px;"></label>
+                        </div>
+                        <label style="font-weight: bold; font-size: 18px;">Today’s Logs</label>
+                    </div>
+                    <div class="pie-chart" style="width: 50%;height: 95%;">
+                        <canvas id="quick_metrics_chart" style="height: 175px;"></canvas>
+                    </div>
+                </div>
+            </div>
+            </topcontent>
+
+            <bottomcontent>
+                <div class="traffic-volume-container">
+                    <div class="header">
+                        <label class="title">
+                            Traffic Volume
+                        </label>
+                    </div>
+                    <div class="content" id="traffic-volume-content" style="height: 82%;">
+                        <canvas id="traffic_volume_chart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="vehicle-classification-container">
+                    <div class="header" style="margin-left: 0px; ">
+                        <label class="title">
+                            Vehicle Classification
+                        </label>
+                    </div>
+                    <div style="height: 82%; width: 97%;">
+                        <canvas id="vehicle_classification_chart"></canvas>
+                    </div>
+                </div>
+            </bottomcontent>
+        </div>
+
+</body>
+</html>
+<script src="static/local/dashboard.js"></script>

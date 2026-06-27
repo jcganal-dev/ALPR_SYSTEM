@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Simulate</title>
+    </head>
+    <style>
+        main {
+            display: flex;
+            flex-direction: column;
+            width: 100px;
+            height: 300px;
+        }
+        textarea#plate_texts {
+            height: 93%;
+            resize: none;
+        }
+        div {
+            display: flex;
+            flex-direction: row;
+            align-items: start;
+        }
+        div p {
+            margin: 0px;
+        }
+    </style>
+    <script src="/static/local/send-data-to-python.js"></script>
+    <body>
+        <div>
+            <main>
+                <textarea id="plate_texts"></textarea>
+                <button onclick="simulate()">Simulate</button>
+            </main>
+            <p id="result"></p>
+        </div>
+    </body>
+</html>
+
+<script>
+    const $ = (id) => document.getElementById(id);
+
+    async function simulate() {
+        $('result').innerHTML = ''
+        const plate_texts_input = $('plate_texts');
+        
+        const plates = plate_texts_input.value.split('\n').filter(p => p.trim() !== '');
+
+        const checkPromises = plates.map(plate => check_registration(plate));
+
+        const results = await Promise.all(checkPromises);
+        let found_match = false;
+        results.forEach(result => {
+            $('result').innerHTML += `${result['original']}${result['registered']==true?` - Found! (${result['reading']})<br>`:'<br>'}`
+        });
+    }
+
+    async function check_registration(plate) {
+        return sendDataToPython({
+            data: {
+                purpose: "simulate",
+                plate_text: plate,
+                use_advance_patterns: 'true',
+            },
+        });
+    }
+</script>

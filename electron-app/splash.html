@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff;
+            color: #000000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: wait;
+            user-select: none;
+            /* border: 1px solid #333; */
+        }
+        .container {
+            text-align: center;
+            padding: 0px 30px 0px 30px;
+        }
+        .logo {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 5px;
+            letter-spacing: 4px;
+            background: linear-gradient(45deg, #00ff00, #186907);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtext {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            margin-bottom: 40px;
+        }
+        .loader-container {
+            width: 200px;
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .loader-bar {
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(45deg, #00ff00, #186907);
+            position: absolute;
+            animation: loading 1.5s infinite ease-in-out;
+        }
+        @keyframes loading {
+            0% { left: -50%; }
+            100% { left: 100%; }
+        }
+        .status {
+            margin-top: 15px;
+            font-size: 11px;
+            font-style: italic;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">LPR SYSTEM</div>
+        <div class="subtext">ENHANCEMENT OF THE VEHICLE LICENSE PLATE RECOGNITION 
+SYSTEM USING DEEP LEARNING MODEL IN 
+AID FOR SECURITY AT MMSU
+</div>
+        <div class="loader-container">
+            <div class="loader-bar"></div>
+        </div>
+        <div class="status">Initializing backend services...</div>
+    </div>
+</body>
+</html>

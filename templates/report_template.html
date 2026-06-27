@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <script src="/static/local/shortcuts.js"></script>
+    <script src="/static/chart.min.js"></script>
+    <script src="/static/chartjs-plugin-datalabels.js"></script>
+    <script src="/static/save_report.js"></script>
+    <script src="/static/jszip.js"></script>
+    <script src="/static/save_file.js"></script>
+    <link rel="stylesheet" href="/static/css/report_template.css">
+</head>
+<body class="no-select a4-page">
+    
+    <div id="zip-progress-tracker" data-html2canvas-ignore="true" style="text-align: center; font-size: 18px; font-weight: bold; padding: 15px; margin-top: 100px; color: #0c4b05;"></div>
+
+    <div class="display-container page-container" id="your-main-wrapper">
+        
+        <div id="dashboard-section">
+            <header>
+                <label>SYSTEM REPORT</label><label class="small" id="report_duration"></label>
+            </header>
+            <p id="intro"></p>
+            <topcontent>
+                <div class="quick-metrics-container">
+                    <div class="header" style="margin-left: 0px;">
+                        <label class="title">Quick Metrics</label>
+                    </div>
+                    <div class="quick_metrics_content">
+                        <div class="status-box" style="width: 30%; background-color: transparent;">
+                            <div><label id="VehiclesToday" style="font-size: 56px;"></label></div>
+                            <label style="font-weight: bold; font-size: 18px;">Vehicles in Total</label>
+                        </div>
+                        <div class="pie-chart" style="width: 50%;">
+                            <canvas id="quick_metrics_chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </topcontent>
+            <bottomcontent>
+                <div class="traffic-volume-container" style="background-color: white;">
+                    <div class="header">
+                        <label class="title">Traffic Volume</label>
+                    </div>
+                    <div class="content" id="traffic-volume-content" style="height: 82%;">
+                        <canvas id="traffic_volume_chart"></canvas>
+                    </div>
+                </div>
+                <div class="vehicle-classification-container">
+                    <div class="header" style="margin-left: 0px; ">
+                        <label class="title">Vehicle Classification</label>
+                    </div>
+                    <div style="height: 82%; width: 97%;">
+                        <canvas id="vehicle_classification_chart"></canvas>
+                    </div>
+                </div>
+            </bottomcontent>
+            
+            <footer>
+                <div>
+                    <div><label>Date: <label id="cur-date">CURRENT DATE</label></label></div>
+                    <div id="user_div">
+                        <label id="user-sig">_________________________</label>
+                        <div class="line"></div>
+                        <label id="user-name">USERNAME</label>
+                    </div>
+                </div>
+            </footer>
+            <div class="html2pdf__page-break"></div>
+        </div>
+        
+        <div id="logs-section" style="width: 100%;">
+            <div class="header" style="text-align: left; margin-bottom: 20px;">
+                <label class="title" id="table-title">No Gate Pass/Unidentified Vehicles</label>
+            </div>
+            
+            <div class="div-table">
+                <div class="div-row header-row">
+                    <div class="div-cell col-plate">Plate</div>
+                    <div class="div-cell col-owner">Owner</div>
+                    <div class="div-cell col-type">Vehicle Type</div>
+                    <div class="div-cell col-loc">Location</div>
+                    <div class="div-cell col-time">Date and Time</div>
+                </div>
+                <div id="table_content">
+                    </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+<script src="/static/local/report_template.js"></script>

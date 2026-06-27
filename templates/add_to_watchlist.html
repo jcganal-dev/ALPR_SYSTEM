@@ -1,0 +1,38 @@
+<html>
+    <title>Edit User</title>
+    <script src="/static/local/shortcuts.js"></script>
+    <script src="/static/local/global_utils.js"></script>
+    <link rel="stylesheet" href="/static/css/add_to_watchlist.css">
+</html>
+<body>
+    <main class="main_container" id="main-container" tabindex="-1" style="outline: none;">
+        <content>
+            <header>
+                <label>Add Record</label>
+            </header>
+            <main class="main_content">
+                <div>User Information</div>
+                <div class="input_group">
+                    <div>
+                        <label class="input_header">Plate Number</label>
+                        <input class="input" id="plate_input" type="text" oninput="input_to_upper(this)" value="">
+                        <label class="error" id="password_error"></label>
+                    </div>
+                    <div>
+                        <label class="input_header">Remarks</label>
+                        <textarea class="input" id="reason_input" type="text"></textarea>
+                        <label class="error" id="confirm_password_error"></label>
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <div class="confirm_div">
+                    <a class="gray_button" href="/notifications">Cancel</a>
+                    <a class="button" style="width: 160px;" onclick="process_new_entry($('plate_input').value,$('reason_input').value,localStorage.getItem('current_user'))">Add to Watchlist</a>
+                </div>
+            </footer>
+        </content>
+    </main>
+</body>
+
+<script src="/static/local/add_to_watchlist.js"></script>

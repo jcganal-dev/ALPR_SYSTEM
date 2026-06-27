@@ -1,0 +1,713 @@
+/* =========================================
+   Typography & Fonts
+   ========================================= */
+@font-face {
+    font-family: 'LicensePlate';
+    src: url('/static/fonts/LicensePlate.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+/* =========================================
+   Global Styles & Base Elements
+   ========================================= */
+html, body {
+    height: 100%;
+    overflow-y: hidden;
+}
+
+body {
+    background-color: rgb(215 216 216 / 30%);
+    color: black;
+    font-family: ui-sans-serif, sans-serif, "Apple Color Emoji", "Sogo UI Emoji", "Sogoe UI Symbol", "Noto Color Emoji";
+}
+
+/* =========================================
+   Main Layout & Containers
+   ========================================= */
+main {
+    display: flex;
+    height: 98%;
+}
+
+.display-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+}
+
+.display-left-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0px 10px;
+    width: 46%;
+    height: 103.5%;
+}
+
+.display-right-container {
+    width: 53%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 103.5%;
+}
+
+container {
+    border-radius: 5px;
+    border: 7px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    background-color: #186907;
+    border-color: #186907;
+    border-style: solid;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    height: 44.6%;
+}
+
+header {
+    font-size: 37px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* =========================================
+   User Navigation Panel
+   ========================================= */
+.nav-panel {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.user-container {
+    border-radius: 100%;
+    background-color: #eeeeee;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}
+
+.user-icon {
+    width: inherit;
+}
+
+.user-name {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: solid 1px white;
+    width: 90%;
+    text-align: center;
+}
+
+/* =========================================
+   Stream / Media Box
+   ========================================= */
+.stream-box {
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3px;
+    height: 94%;
+}
+
+.stream-box label {
+    position: fixed;
+    color: white;
+    margin: 10px 0px 0px 10px;
+}
+
+.stream-img {
+    height: 100%;
+    width: 100%;
+}
+
+/* =========================================
+   Data Tables (Log Table)
+   ========================================= */
+.log-table {
+    display: inline-block;
+    width: 100%;
+    height: fit-content;
+    font-size: 16px;
+    border-radius: 5px;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.log-table::-webkit-scrollbar {
+    display: none;
+}
+
+.log-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.fixed { 
+    table-layout: fixed; 
+}
+
+table.fixed td { 
+    overflow: hidden; 
+}
+
+.header_div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 7px;
+}
+
+th {
+    text-align: left;
+}
+
+td {
+    padding: 7.5px 5px;
+    overflow: hidden;
+    text-wrap: nowrap;
+}
+
+tbody tr {
+    border-top: 2px solid #D7D8D8;
+    background-color: rgba(255, 255, 255, 0.875);
+    border-bottom: 2px solid #D7D8D8;
+    height: 46px;
+}
+
+thead tr {
+    position: sticky; 
+    z-index: 1;
+}
+
+thead th {
+    color: white;
+    position: sticky;
+    top: 0;
+    background-color: #186907;
+    padding: 5px;
+}
+
+/* Table Input Filters */
+th input {
+    background-color: green;
+    color: white;
+    width: 8ch;
+    transition: ease-out 0.3s;
+    border: none;
+    font-family: ui-sans-serif, sans-serif, "Apple Color Emoji", "Sogo UI Emoji", "Sogoe UI Symbol", "Noto Color Emoji";
+    outline: none;
+    border-radius: 3px;
+    height: 20px;
+}
+
+th input::placeholder {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+th input:hover, 
+th input:not(:placeholder-shown),
+th input:focus {
+    background-color: white;
+    width: 100%;
+    color: black;
+}
+
+th input:hover::placeholder, 
+th input:not(:placeholder-shown)::placeholder,
+th input:focus::placeholder {
+    color: rgba(0, 0, 0, 0.2);
+    text-align: right;
+}
+
+/* =========================================
+   Registration & Status Indicators
+   ========================================= */
+.status td:nth-child(1) { background-color: #EB0E1F; }
+.status td:nth-child(2) { background-color: #2BA32D; }
+.status td:nth-child(3) { background-color: #FFBF26; }
+
+.class td.tricycle { background-color: #F47982; }
+.class td.car { background-color: #1A74A3; }
+.class td.motorcycle { background-color: #FCD657; }
+
+td[status="No Gate Pass"] a,
+label[status="No Gate Pass"], 
+td[status="No Gate Pass"] {
+    color: red;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+td[status="Registered"] a,
+label[status="Registered"], 
+td[status="Registered"] {
+    color: green;
+    text-decoration: none;
+}
+
+td[status="Unidentifiable"] a,
+label[status="Unidentifiable"], 
+td[status="Unidentifiable"] {
+    color: orange;
+    text-decoration: none;
+}
+
+/* System Status Dashboard */
+.system-status-container {
+    background-color: white;
+    width: 60%;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+.quick-metrics-container {
+    background-color: white;
+    width: 60%;
+    height: fit-content;
+    border-radius: 10px;
+    padding-bottom: 10px;
+}
+
+.system-status-content {
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.status-box {
+    width: 40%;
+    height: 100px;
+    background-color: #D7D8D8;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Shared dot styling */
+div[status="initializing"],
+div[status="active"],
+div[status="inactive"] {
+    border-radius: 100%;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}
+
+div[status="initializing"] { background-color: yellow; }
+div[status="active"] { background-color: green; }
+div[status="inactive"] { background-color: red; }
+
+.regular-text-div { display: inline-block; }
+.not-reg-prev { height: 20px; }
+
+/* =========================================
+   License Plates
+   ========================================= */
+plate {
+    font-family: 'LicensePlate', Arial, sans-serif;
+    letter-spacing: 0.1ch;
+    cursor: default;
+    border: solid 1px black;
+    border-radius: 0.5ch;
+    padding: 2px 4px 1px 4px;
+    background-color: white;
+}
+
+plate[method='Perfect'] { background-color: white; }
+plate[method='Pattern-checked'] { background-color: lightblue; }
+plate[method='Similar'] { background-color: rgb(255, 166, 0); }
+plate[method='Trimmed'] { background-color: cyan; }
+
+#plate_title {
+    position: fixed;
+    font-size: 35px;
+    margin-top: 10px;
+    visibility: hidden;
+}
+
+/* =========================================
+   Cards & Overlays
+   ========================================= */
+card {
+    background-color: white;
+    border-style: solid;
+    gap: 5px;
+    border-radius: 5px;
+    border-color: white;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 0px;
+    border-left: solid 40px #0C4B05;
+}
+
+card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: solid 2px #E7EBEB;
+}
+
+card-header label.title {
+    font-size: 36px;
+    margin: 3px 0px 7px 17px;
+    font-weight: bold;
+}
+
+card-content {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 5px 10px 10px 20px;
+}
+
+card-image-container {
+    width: 500px;
+    height: 500px;
+    box-shadow: inset 0 0 3px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+card-image-container img {
+    max-height: 490px;
+    max-width: 490px;
+    height: 100%;
+}
+
+card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 500px;
+    width: 270px;
+}
+
+.floating-dark-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    top: 0px;
+    left: 0px;
+    outline: none;
+}
+
+#ocrs_div {
+    overflow-y: auto;
+    align-items: start;
+}
+
+.image_details_container {
+    margin: 0px 0px 0px 6px;
+    width: 500px;
+    align-self: start;
+    justify-self: start;
+    height: 0px;
+    z-index: 1;
+}
+
+.image_details_container label {
+    font-size: 1cqi;
+    text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.2);
+    visibility: hidden;
+}
+
+/* =========================================
+   Controls, Buttons & Interactions
+   ========================================= */
+.controls-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.control-container {
+    background-color: rgba(0, 0, 0, 0);
+    width: auto;
+    height: auto;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: ease-in 0.3s;
+}
+
+.control-container .fullscreen {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    gap: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+.control-container .fullscreen img {
+    width: inherit;
+    height: inherit;
+    filter: invert();
+}
+
+.clickable {
+    cursor: pointer;
+    transition: ease-out 0.2s;
+}
+
+.clickable:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.button1 {
+    text-decoration: none;
+    color: black;
+}
+
+.verify-button {
+    text-decoration: none;
+    color: white;
+    background-color: #186907;
+    padding: 3px 8px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.red_button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: red;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.X-button {
+    background-color: lightgray;
+    text-decoration: none;
+    color: black;
+    height: 19px;
+    padding: 0px 8px;
+    display: inline-flex;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    transition: ease 0.2s;
+}
+
+.X-button:hover {
+    background-color: red;
+    color: white;
+}
+
+.X-button div {
+    margin-top: -2px;
+}
+
+.trash_icon {
+    height: 20px;
+}
+
+/* =========================================
+   Inputs, Selects & Forms
+   ========================================= */
+select {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-family: ui-sans-serif, sans-serif, "Apple Color Emoji", "Sogo UI Emoji", "Sogoe UI Symbol", "Noto Color Emoji";
+    font-weight: bold;
+    margin-left: -5px;
+    width: min-content;
+    outline: none;
+}
+
+option {
+    color: black;
+}
+
+.input_group_div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.input_group_div label {
+    font-size: 12px;
+}
+
+.input_group_div input {
+    font-family: ui-sans-serif, sans-serif, "Apple Color Emoji", "Sogo UI Emoji", "Sogoe UI Symbol", "Noto Color Emoji";
+    font-size: 14px;
+    border: 2px solid #0C4B05;
+    border-radius: 5px;
+    padding: 6px;
+    outline: none;
+    width: 94%;
+}
+
+.custom_date_container {
+    display: none;
+    flex-direction: row;
+    gap: 3px;
+    width: 22ch;
+    font-size: 14px;
+}
+
+#date_from, #date_to {
+    font-size: 12px;
+    width: 50%;
+}
+
+/* Search & Sorting */
+.searchbar_container {
+    display: flex;
+    height: 30px;
+}
+
+.searchbar_container a {
+    background-color: #186907;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    width: 30px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    cursor: pointer;
+}
+
+.search_bar {
+    border: #186907 2px solid;
+    padding: 5px;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    font-family: ui-sans-serif, sans-serif, "Apple Color Emoji", "Sogo UI Emoji", "Sogoe UI Symbol", "Noto Color Emoji";
+    font-size: 12px;
+    width: 230px;
+}
+
+.sort_by {
+    background-color: white;
+    color: black;
+    font-weight: 100;
+    padding: 3px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 12px;
+}
+
+.sort_by_dir {
+    background-color: #186907;
+    color: white;
+    font-weight: 100;
+    font-size: 12px;
+    padding: 3px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.sort_by_dir option {
+    background-color: white;
+}
+
+/* =========================================
+   Download Elements & Spinners
+   ========================================= */
+.download-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.download-div {
+    border-radius: 5px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.download-div a img {
+    height: 15px;
+    width: max-content;
+}
+
+#download_status {
+    font-size: 14px;
+    font-weight: normal;
+    display: inline-block;
+}
+
+.spinner {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border-left-color: #09f;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -1px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* =========================================
+   Utilities
+   ========================================= */
+.no-select {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.invert {
+    filter: invert();
+}

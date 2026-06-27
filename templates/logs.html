@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logs</title>
+    <script src="/static/local/shortcuts.js"></script>
+    <script src="/static/local/send-data-to-python.js"></script>
+    <script src="/static/local/global_utils.js"></script>
+    <link rel="stylesheet" href="/static/css/logs.css">
+</head>
+<body>
+    <iframe id="template_download" style="position: absolute; visibility: hidden;">
+    </iframe>
+    <header id="main-container" tabindex="-1" style="outline: none;">
+        <div>
+            <label style="display: flex; color: #186907; text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.2);">
+                <span>Vehicle Logs</span>
+            </label>
+            <div style="display: flex; gap:3px;height: 23px;margin:8px 0px 8px 0px;padding-left: 5px;">
+                <select onchange="filters[6]=this.value;$('current_page').value = 1;get_history()" class="sort_by">
+                    <option value="date_time">Date and Time</option>
+                    <option value="gate_number">Location</option>
+                    <option value="vehicle_type">Vehicle Type</option>
+                    <option value="full_name">Owner</option>
+                    <option value="status">Status</option>
+                    <option value="plate_number">Plate</option>
+                </select>
+                <select onchange="filters[7]=this.value;$('current_page').value = 1;get_history()" class="sort_by_dir">
+                    <option value="DESC">Desc.</option>
+                    <option value="ASC">Asc.</option>
+                </select>
+                <div onclick="download_logs()" class="verify-button download-div">
+                    <a href="#" style="text-decoration:none;">
+                        <img id="download_icon" title="Download report" src="static/images/download.png">
+                    </a>
+                    <span id="download_status">Download</span>
+                </div>
+            </div>
+        </div>
+        <div class="searchbar_container">
+            <input class="search_bar" id="search_bar" type="text" placeholder="Search plate number or owner..." onkeyup="handle_search()">
+            <a onclick="handle_search()">🔎︎</a>
+        </div>
+    </header>
+    <main>
+        <div class="log-table">
+            <table>
+                <colgroup>
+                    <col width="7%">
+                    <col width="12%">
+                    <col width="26%">
+                    <col width="13%">
+                    <col width="10%">
+                    <col width="21%">
+                    <col width="11%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="header_div"><label>Plate</label></div></th>
+                        <th>
+                            <select onchange="filters[1]=this.value;get_history()">
+                                <option value="All">Status (All)</option>
+                                <option value="Registered">Registered</option>
+                                <option value="No Gate Pass">No Gate Pass</option>
+                                <option value="Unidentifiable">Unidentifiable</option>
+                            </select>
+                        </th>
+                        <th><div class="header_div"><label>Owner</label></div></th>
+                        <th>
+                            <select onchange="filters[2]=this.value;get_history()">
+                                <option value="All">Vehicle Type (All)</option>
+                                <option value="tricycle">Tricycle</option>
+                                <option value="motorcycle">Motorcycle</option>
+                                <option value="car">Car</option>
+                            </select>
+                        </th>
+                        <th>
+                            <select onchange="filters[3]=this.value;get_history()">
+                                <option value="All">Location (All)</option>
+                                <option value="1">Entrance</option>
+                                <option value="2">Exit</option>
+                            </select>
+                        </th>
+                        <th>
+                            <select style="width: 100%;" onchange="if(this.value=='Custom'){toggle_custom_date(true);return}else{toggle_custom_date(false)};filters[4]=this.value;get_history()">
+                                <option value="Today">Date and Time (Today)</option>
+                                <option value="Yesterday">Yesterday</option>
+                                <option value="This Week">This Week</option>
+                                <option value="This Month">This Month</option>
+                                <option value="All">All Time</option>
+                                <option value="Custom">Custom</option>
+                            </select>
+                            <div class="custom_date_container" id="custom_date_container">
+                                <input type="date" id="date_from" oninput="handle_date_input(this,$('date_to'))">
+                                <label>-</label>
+                                <input type="date" id="date_to" oninput="handle_date_input($('date_from'),this)">
+                            </div>
+                        </th>
+                        <th><div class="header_div"><label>Guard</label></div></th>
+                    </tr>
+                </thead>
+                <tbody id="table_content">
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7">
+                            <div class="controls-div">
+                                <a class="verify-button no-select" onclick="go_to_prev_page()">
+                                    < Previous
+                                </a>
+                                <label>Page
+                                    <input type="number" min="1" max="1" id="current_page" placeholder="1" onkeyup="gotopage(event, this.value)" oninput="handle_page_input(this)" />
+                                    of 
+                                    <span id="max_page">1</span></label>
+                                <a class="verify-button no-select" onclick="go_to_next_page()">Next ></a>
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
+<script src="/static/local/logs.js"></script>

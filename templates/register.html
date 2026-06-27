@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <script src="/static/local/shortcuts.js"></script>
+    <script src="/static/local/global_utils.js"></script>
+    <script src="/static/local/register_user.js"></script>
+    <script src="/static/local/customAlert.js"></script>
+    <link rel="icon" href="static/images/icon.ico">
+    <link rel="stylesheet" href="/static/css/register.css">
+</head>
+<body onload="localStorage.clear()">
+    <container id="main-container" tabindex="-1" style="outline: none;">
+        <main>
+            <header>
+                <div>
+                    <label>Register</label>
+                </div>
+            </header>
+            <subheader>
+                <div>
+                    <label>Create your account</label>
+                </div>
+            </subheader>
+            <content>
+                <preload style="display: none;">
+                    <img src="/static/images/eye.png" class="showhide">
+                    <img src="/static/images/hidden.png" class="showhide">
+                </preload>
+                <div class="input-field">
+                    <div style="width: 50px;height: 50px; background-color: #D7D8D8; display: flex; align-items: center; justify-content: center;"><img src="static/images/users_icon.png" style="height: 35px; filter: brightness(0%);"></div>
+                    <label class="no-select input" onclick="$('register_name').focus()">Name</label>
+                    <input type="text" id="register_name" required>
+                </div>
+                <div class="input-field">
+                    <div style="width: 50px;height: 50px; background-color: #D7D8D8; display: flex; align-items: center; justify-content: center;"><img src="static/images/id.png" style="height: 35px; filter: invert();"></div>
+                    <label class="no-select input" onclick="$('register_employee_id').focus()">Employee ID</label>
+                    <input type="text" id="register_employee_id" oninput="input_to_upper(this)" required>
+                </div>
+                <div class="input-field">
+                    <div style="width: 50px;height: 50px; background-color: #D7D8D8; display: flex; align-items: center; justify-content: center;"><img src="static/images/lock_icon.png" style="height: 35px;"></div>
+                    <label class="no-select input" onclick="$('register_password').focus()">Password</label>
+                    <input type="password" id="register_password" oninput="this.value = this.value.replace(/\s/g, '');" required>
+                    <div id="showwrap"><a id="togglePassword" onclick="toggleBtn(this,$('register_password'))"><img src="/static/images/hidden.png" class="showhide"></a></div>
+                </div>
+                </div>
+                <div class="input-field" id="confirm-password-div">
+                    <div style="width: 50px;height: 50px; background-color: #D7D8D8; display: flex; align-items: center; justify-content: center;"><img src="static/images/lock_icon.png" style="height: 35px;"></div>
+                    <label class="no-select input" onclick="$('register_confirm_password').focus()">Confirm Password</label>
+                    <input type="password" id="register_confirm_password" oninput="this.value = this.value.replace(/\s/g, '');" required>
+                    <div id="showconfirmwrap"><a id="toggleConfirmPassword" onclick="toggleBtn(this,$('register_confirm_password'))"><img src="/static/images/hidden.png" class="showhide"></a></div>
+                </div>
+            </content>
+            <actions>
+                <a class="no-select no-underline" onclick="handleRegister()">Register</a>
+            </actions>
+            <footer style="width: 100%;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+                <div>
+                    <label>Already have an account? <a href="/login" class="no-select no-underline" style="color: #0cc0df">Login</a></label>
+                </div>
+                <br>
+                <div>
+                    <a class="nav-button-red" onclick="handle_shutdown()" style="color: #0cc0df; cursor: pointer;">Shutdown System</a>
+                </div>
+            </footer>
+        </main>
+    </container>
+</body>
+</html>

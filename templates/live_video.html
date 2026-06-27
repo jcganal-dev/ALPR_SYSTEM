@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Live Video</title>
+    <script src="/static/local/shortcuts.js"></script>
+    <script src="/static/local/global_utils.js"></script>
+    <link rel="stylesheet" href="/static/css/global.css" />
+    <link rel="stylesheet" href="/static/css/live_video.css">
+  </head>
+  <body>
+    <div class="main-container" id="main-container" tabindex="-1" style="outline: none;">
+      <div class="display-container">
+        <div class="display-left-container">
+          <container>
+            <label class="feed-title">ENTRANCE</label>
+            <div class="stream-box camera1" onmousemove="showControls(this.firstElementChild)">
+              <div class="control-container" style="opacity: 0; z-index: 1">
+                <a class="fullscreen" href="/camera1">
+                  <img src="static/images/fullscreen.png" />Fullscreen
+                </a>
+              </div>
+              <img src="/camera1_feed" alt="camera1 Stream" class="stream-img" onerror="window.location.reload()"/>
+            </div>
+          </container>
+          <container>
+            <label class="feed-title">EXIT</label>
+            <div class="stream-box camera2" onmousemove="showControls(this.firstElementChild)">
+              <div class="control-container" style="opacity: 0; z-index: 1">
+                <a class="fullscreen" href="/camera2">
+                  <img src="static/images/fullscreen.png" />Fullscreen
+                </a>
+              </div>
+              <img src="/camera2_feed" alt="camera2 Stream" class="stream-img"/>
+            </div>
+          </container>
+        </div>
+        <div class="display-right-container" style="justify-content: start" onerror="window.location.reload()" >
+          <div style="width: 100%; display: flex; justify-content: center;padding-top: 10px;">
+            <header>
+              <div class="searchbar_container">
+                <input class="search_bar" id="search_bar" type="text" placeholder="Search plate number or owner..." oninput="handle_search()">
+                <a onclick="handle_search()">🔎︎</a>
+              </div>
+            </header>
+          </div>
+          <div class="log-table" id="log_table">
+            <table class="fixed">
+              <colgroup>
+                <col width="11%" />
+                <col width="20%" />
+                <col width="30%" />
+                <col width="15%" />
+                <col width="13%" />
+                <col width="17%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Plate</th>
+                  <th onclick="toggleStatusFilter(1)" style="cursor: pointer">
+                    Status <span id="status_filter">(All)</span>
+                  </th>
+                  <th>Owner</th>
+                  <th>Vehicle Type</th>
+                  <th>Location</th>
+                  <th>Date and Time</th>
+                </tr>
+              </thead>
+              <tbody id="table_content" style="overflow-y: auto"></tbody>
+              <tbody id="table_placeholders" style="overflow-y: auto"></tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="6">
+                    <div class="controls-div">
+                      <a class="verify-button no-select" onclick="go_to_prev_page()">
+                        < Previous
+                      </a>
+                      <label>Page
+                        <input type="number" min="1" max="1" id="current_page" placeholder="1" onkeyup="gotopage(event, this.value)" oninput="if (parseInt(this.value) > parseInt(this.max)) {this.value = this.max;};if (parseInt(this.value) < 1) {this.value = 1;};go_to_page(this.value-1)" />
+                        of 
+                        <span id="max_page">1</span></label>
+                      <a class="verify-button no-select"onclick="go_to_next_page()">Next ></a>
+                    </div>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="/static/local/send-data-to-python.js"></script>
+<script src="/static/local/live_video.js"></script>

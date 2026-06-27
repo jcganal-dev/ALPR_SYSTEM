@@ -1,0 +1,577 @@
+/* =========================================
+   Header Styles
+   ========================================= */
+header {
+    display: flex;
+    justify-content: center;
+    background-color: #0d3904;
+    color: white;
+}
+
+header dnt {
+    position: absolute;
+    left: 5px;
+}
+
+header pagetitle {
+    width: 100%;
+    text-align: center;
+}
+
+/* =========================================
+   Sidebar Layout & Parent Container
+   ========================================= */
+.side-bar-parent {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(24, 105, 7, 0.85);
+}
+
+.side-bar {
+    width: 42px;
+    display: flex;
+    align-items: center;
+    padding: 30px 0 0 0;
+    flex-direction: column;
+    transition: ease-out 0.3s;
+}
+
+.side-bar-open {
+    width: 200px;
+    opacity: 1;
+}
+
+.side-bar-open .user-icon {
+    border: solid 2px #FFBF26;
+}
+
+.side-bar-open div {
+    visibility: visible;
+}
+
+.side-bar-open .minimizer {
+    display: flex;
+    justify-content: end;
+    width: 233px;
+    transition: ease-out 0.3s;
+    border-radius: 100%;
+}
+
+/* Sidebar Dynamic Visibility (Closed vs Open) */
+.side-bar div a label {
+    opacity: 0;
+    width: 0px;
+    visibility: hidden;
+}
+
+.side-bar-open div a label {
+    opacity: 1;
+    width: fit-content;
+    visibility: visible;
+}
+
+.side-bar div.profile-button div {
+    transition: ease-out 0.2s;
+    width: 28px;
+    height: 28px;
+}
+
+.side-bar-open div.profile-button div {
+    width: 76px;
+    height: 76px;
+}
+
+.side-bar div.user-name {
+    opacity: 0;
+    transition: ease-out 0.2s;
+}
+
+.side-bar-open div.user-name {
+    opacity: 1;
+}
+
+/* =========================================
+   Sidebar Minimize & Collapse Controls
+   ========================================= */
+#sidebar-collapse {
+    display: none;
+}
+
+.minimize-container {
+    height: 100%;
+    z-index: 3;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background-color: inherit;
+    width: 0px;
+}
+
+.minimize-button {
+    transform: translateX(100%);
+    cursor: pointer;
+    background-color: inherit;
+    border-color: transparent;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    align-content: center;
+    text-decoration: none;
+    transition: ease 0.2s;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    width: 0%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    opacity: 0;
+}
+
+.side-bar-parent:hover .minimize-button {
+    width: 20px;
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+.side-bar-parent:not(:hover) .minimize-button {
+    transition-delay: 0.8s;
+}
+
+.minimize-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-left: 8px;
+    filter: none;
+    transform: rotateY(180deg);
+}
+
+/* =========================================
+   User Profile Elements
+   ========================================= */
+.profile-button {
+    height: 100px;
+}
+
+.user-container {
+    border-radius: 100%;
+    background-color: #eeeeee;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}
+
+.user-icon {
+    width: inherit;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    border: solid 1px #FFBF26;
+    cursor: pointer;
+}
+
+.user-name {
+    color: #FFBF26;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: solid 1px #febe02;
+    width: 90%;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* =========================================
+   Navigation Panel & Buttons
+   ========================================= */
+.nav-panel {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.nav-button, 
+.nav-button-red {
+    position: relative;
+    top: 0px;
+    cursor: pointer;
+    height: 50px;
+    background-color: inherit;
+    border-color: transparent;
+    color: rgba(255, 191, 38, 0.95);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    align-content: center;
+    text-decoration: none;
+    transition: ease 0.2s;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-button label, 
+.nav-button-red label {
+    cursor: pointer;
+}
+
+.nav-button:hover, 
+.active {
+    background-color: #D6D7D7;
+    cursor: pointer;
+}
+
+.nav-button:hover:not(.active) {
+    background-color: #429B38;
+}
+
+.nav-button-red:hover {
+    background-color: #FF0000;
+    color: black;
+}
+
+.nav-button-red:hover img {
+    filter: brightness(0);
+}
+
+.active label {
+    color: rgb(24, 105, 7);
+}
+
+.active img {
+    filter: brightness(0) saturate(100%) invert(28%) sepia(61%) saturate(1637%) hue-rotate(87deg) brightness(92%) contrast(94%);
+}
+
+.button-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-left: 8px;
+    filter: none;
+}
+
+/* =========================================
+   Notification System
+   ========================================= */
+.notification-bar {
+    background-color: transparent;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 99.3%;
+    height: 96%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    z-index: 2;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+    padding-top: 15px;
+}
+
+.notif-container {
+    background-color: rgba(225, 236, 246, 0.8);
+    width: 300px;
+    height: fit-content;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 10px;
+    transition: ease-out 0.1s;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    color: black;
+    pointer-events: auto;
+    padding: 18px;
+    gap: 10px;
+}
+
+.notif-container:hover {
+    background-color: rgba(225, 236, 246, 1);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+notifheader {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+notifBody {
+    display: flex;
+    flex-direction: column;
+}
+
+notiffooter {
+    align-self: center;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* =========================================
+   General Buttons, Utilities & Animations
+   ========================================= */
+.button {
+    cursor: pointer;
+}
+
+.boxed-button {
+    cursor: pointer;
+    border: solid 1px #DDE6EC;
+    background-color: white;
+    width: 100%;
+    padding: 10px 0px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.warnign-emoji {
+    margin-top: -4.5px;
+}
+
+.blinking {
+    animation: blink 1s ease-in-out infinite forwards;
+}
+
+@keyframes blink {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* =========================================
+   Cards Structure
+   ========================================= */
+card {
+    background-color: white;
+    border-style: solid;
+    gap: 5px;
+    border-radius: 5px;
+    border-color: white;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 0px;
+    border-left: solid 40px #0C4B05;
+}
+
+card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: solid 2px #E7EBEB;
+}
+
+card-header label.title {
+    font-size: 36px;
+    margin: 3px 0px 7px 17px;
+    font-weight: bold;
+}
+
+card-content {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 5px 10px 10px 20px;
+}
+
+card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 500px;
+    width: 270px;
+}
+
+card-image-container {
+    width: 500px;
+    height: 500px;
+    box-shadow: inset 0 0 3px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+card-image-container img {
+    max-height: 490px;
+    max-width: 490px;
+    height: 100%;
+}
+
+.floating-dark-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    top: 0px;
+    outline: none;
+}
+
+.X-button {
+    background-color: lightgray;
+    text-decoration: none;
+    color: black;
+    height: 19px;
+    padding: 0px 8px;
+    display: inline-flex;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    transition: ease 0.2s;
+}
+
+.X-button:hover {
+    background-color: red;
+    color: white;
+}
+
+.X-button div {
+    margin-top: -2px;
+}
+
+.verify-button {
+    text-decoration: none;
+    color: white;
+    background-color: #186907;
+    padding: 3px 8px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.red_button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: red;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.trash_icon {
+    height: 20px;
+}
+
+#plate_title {
+    position: fixed;
+    font-size: 35px;
+    margin-top: 10px;
+    visibility: hidden;
+}
+
+/* =========================================
+   Modals & Overlays
+   ========================================= */
+#ocrs_div {
+    overflow-y: auto;
+    align-items: start;
+    height: 100%;
+}
+
+.image_details_container {
+    margin: 0px 0px 0px 6px;
+    width: 500px;
+    align-self: start;
+    justify-self: start;
+    height: 0px;
+    z-index: 1;
+}
+
+.image_details_container #image_details {
+    font-size: 1cqi;
+    text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.2);
+    opacity: 1;
+}
+
+#image_details {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    margin: -5px -6px;
+    height: auto;
+    width: fit-content;
+}
+
+.input_group_div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+
+.input_group_div label {
+    font-size: 12px;
+}
+
+.input_group_div input {
+    font-family: ui-sans-serif, sans-serif, "Apple Color Emoji", "Sogo UI Emoji", "Sogoe UI Symbol", "Noto Color Emoji";
+    font-size: 14px;
+    border: 2px solid #0C4B05;
+    border-radius: 5px;
+    padding: 6px;
+    outline: none;
+    width: 94%;
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0;
+}
+
+thead th {
+    color: white;
+    position: sticky;
+    top: 0;
+    background-color: rgb(24, 105, 7);
+    padding: 5px;
+}
+
+label[status="No Gate Pass"], 
+td[status="No Gate Pass"] {
+    color: red;
+    font-weight: bold;
+}
+
+label[status="Registered"], 
+td[status="Registered"] {
+    color: green;
+    text-decoration: none;
+}
+
+label[status="Unidentifiable"], 
+td[status="Unidentifiable"] {
+    color: orange;
+    text-decoration: none;
+}
+
+th {
+    text-align: left;
+    font-size: 1cqi;
+}
+
+td {
+    padding: 7.5px 5px;
+    container-type: inline-size;
+    width: 100%;
+    max-width: 500px;
+    font-size: 1cqi;
+}

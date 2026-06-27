@@ -1,0 +1,62 @@
+<html>
+    <title>Edit User</title>
+    <script src="/static/local/shortcuts.js"></script>
+    <script src="/static/local/global_utils.js"></script>
+    <link rel="stylesheet" href="/static/css/edit_user.css">
+</html>
+<body>
+    <main class="main_container" id="main-container" tabindex="-1" style="outline: none;">
+        <side class="side_panel">
+        </side>
+        <content>
+            <header>
+                <label>Edit User</label>
+            </header>
+            <main class="main_content">
+                <div>User Information</div>
+                <div class="user_information">
+                    <div class="user_icon_div">
+                        <img src="static/images/user.png" class="user_icon" id="user_icon" onerror="this.src='static/images/user.png'">
+                        <a class="button" onclick="$('pfp').click()">Change</a>
+                        <input type="file" style="display: none;" id="pfp" accept="image/*" value="N/A">
+                    </div>
+                    <div class="user_desc_div">
+                        <div><label id="username" class="username"></label><label id="user_role" class="user_role">Security Guard</label></div>
+                        <div><label id="user_id" class="user_id"></label></div>
+                        <div><label id="user_email" class="user_email"></label></div>
+                    </div>
+                </div>
+                <div class="input_group">
+                    <div>
+                        <label class="input_header">Employee ID</label>
+                        <input class="input" id="employee_id" type="text" value="" oninput="input_to_upper(this)">
+                    </div>
+                    <div>
+                        <label class="input_header">Name</label>
+                        <input class="input" id="employee_name" type="text" value="">
+                    </div>
+                    <div>
+                        <label class="input_header">Email</label>
+                        <input class="input" id="employee_email" type="text" value="" oninput="this.value = this.value.replace(/\s/g, '');">
+                    </div>
+                    <div id="role_div">
+                        <label class="input_header">Role</label>
+                        <select class="input" id="employee_role">
+                            <option value="Security Guard">Security Guard</option>
+                            <option value="ADMIN">ADMIN</option>
+                        </select>
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <div class="delete_div"><a class="red_button" onclick="delete_user()" style="width: fit-content;"><img src="static/images/trash.png" class="trash_icon">Delete User</a></div>
+                <div class="confirm_div">
+                    <a class="gray_button" onclick="handle_cancel()">Cancel</a>
+                    <a class="button" onclick="save_edit_user_changes()" href="#">Save Changes</a>
+                </div>
+            </footer>
+        </content>
+    </main>
+</body>
+
+<script src="/static/local/edit_user.js"></script>

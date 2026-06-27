@@ -1,0 +1,15 @@
+<html>
+    <head>
+    <script src="/static/local/shortcuts.js"></script>
+    <script src="/static/local/global_utils.js"></script>
+    <link rel="stylesheet" href="/static/css/full_camera.css">
+    </head>
+    <body>
+        <div class="stream-box camera1" onmousemove="showControls(this.firstElementChild)">
+            <div class="control-container" style="opacity: 0; z-index: 3;">
+                <a class="fullscreen" href="/live_video"><img src="static/images/minimize.png">Minimize</a>
+            </div>
+            <img src="/camera1_feed" alt="camera1 Stream" class="stream-img" onerror="window.location.reload();">
+        </div>
+    </body>
+</html>
