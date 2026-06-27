@@ -1,2 +1,5 @@
 electron-app/node_modules/
 electron-app/dist/
+*.xlsx
+*.xls
+*.csv

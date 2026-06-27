@@ -20,11 +20,9 @@ DASHBOARD_TIME_START = '06:00:00'
 DASHBOARD_TIME_END = '18:00:00'
 DASHBOARD_TIME_INTERVAL = '15'
 USE_BBOX_PREDICTION_LOGIC = True
+# Camera sources
 camera1_source_cam = "rtsp://admin:paraThesis(2026)@192.168.100.2:554/stream1"
 camera2_source_cam = "rtsp://admin:thesisAdmin(25-26)@192.168.100.96:554/stream1"
-# camera1_source_cam = "./SAMPLES/entry.mp4"
-# camera2_source_cam = "./SAMPLES/exit1.mp4"
-# MODEL_PATH = "./MODELS/best.engine"
 MODEL_PATH = "./MODELS/last.engine"
 debugs = False
 graphs = False
