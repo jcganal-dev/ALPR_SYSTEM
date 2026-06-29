@@ -1,4 +1,4 @@
-# 🚗 License Plate Recognition System
+# 🚗 License Plate Recognition System (ReUpload)
 
 A simple, lightweight Automatic License Plate Recognition (ALPR) system utilizing **YOLOv11** for object detection and **EasyOCR** for text extraction.
 
